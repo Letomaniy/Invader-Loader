@@ -32,11 +32,17 @@
 ![](img/Screenshot_5.png)
 
 InvaderLoader - корневая папка проекта
+
 InvaderLoader.pro - файл проекта, в этом файле хранятся первоначальные настройки для QT Creator и для Qmake
+
 - Заголовочные(Headers) - заголовочные файлы C++
+
 - Исходники(Sources) - исходные файлы C++
+
 - Формы(Forms) - файлы графических форм вашего приложения
+
 - Ресурсы(Resouces) - тут находится файл ресурсов где можно хранить картинки и dll которые нужно будет внедрить
+
 - Другие файлы(Others file) - папка для прочих файлов которые могут понадобится в проекте(не является аналогом ресурсов)
 
 3.  Настраиваем лоадер в заголовочных и исходных файлах кода C++:
@@ -46,34 +52,44 @@ InvaderLoader.pro - файл проекта, в этом файле хранят
 ![](img/Screenshot_6.png)
 
 В классе config который инициализируется почти в каждой части лоадера находятся основные настройки которые подписаны как в самом редакторе кода, так и здесь я их опишу.
+
 `bool ProtectAgainStart` - разрешает/запрещает(false/true) повторный запуск лоадера, если программа уже была запущена ранее и работает сейчас.
+
 `QString version` - строковое значение которое указывает версию лоадера(требуется для автообновления)
+
 `bool ShowUpdateWindow` - показывает/не показывает(true/false) окно которое уведомляет о проверки и последующем обновлении лоадера
+
 `bool AutoUpdateDisable` - включает/выключает(false/true) автообновление лоадера. Подходит для тех людей которые любят скидывать билды вручную
+
 `QString UrlToVersionFile` - строковое значение в которое требуется вписать ссылку на version.txt файл который размещён у вас на сайте(если отключено автообновление, то можно оставить пустым)
+
 `QString UrlToUpdatedFile` - строковое значение в которое требуется вписать ссылку на файл обновлённого лоадера который размещён у вас на сайте(если отключено автообновление, то можно оставить пустым)
+
 `QString UrlToCheckLisencePHP`- строковое значени в которое требуется вписать ссылку на основной файл обработки запроса check.php который размещён у вас на сайте
+
 `bool UsingKeySystem` - система ключей, на ваше усмотрение если вы знаете что с ней можно будет интересного придумать(допустим выдавать только ключ, а человек будет вводить логин/пароль по желанию)
+
 `bool HideKeyField` - скрывает область которая обведена красным прямоугольником
 
 ![](img/Screenshot_7.png)
 
 
-АВТООБНОВЛЕНИЕ РАБОТАЕТ СЛЕДУЮЩИМ ОБРАЗОМ: 
+```АВТООБНОВЛЕНИЕ РАБОТАЕТ СЛЕДУЮЩИМ ОБРАЗОМ: 
 1) Создаём билд с версией выше чем была прежде. 
 2) Загружаем билд на сайт
 3) Указываем новую версию в файле version.txt который размещён у вас на сайте.
 4) При запуске лоадера с устаревшей версией(версия указывается в строковом значении `QString version`)
+```
 
 Теперь разберёмся как использовать этот лоадер после всех настроек(при условии что все интернет запросы работают правильно)
 
 4. Нам нужно будет написать собственный метод для иньекции dll в целевой процесс:
-1) Нужно будет найти в файле selecttab.cpp обработчик нажатия на кнопку Inject название обработчика `on_inject_clicked`
-2) Внутри обработчика ничего нет, по этому мы должны сделать это сами(по этому там и написано "Your Injection method"):
+4.1 Нужно будет найти в файле selecttab.cpp обработчик нажатия на кнопку Inject название обработчика `on_inject_clicked`
+4.2 Внутри обработчика ничего нет, по этому мы должны сделать это сами(по этому там и написано "Your Injection method"):
 
 ![](img/Screenshot_8.png)
 
-3) Чтоб сделать самую простую загрузку неуправляемой DLL в целевой процесс нужно подсмотреть что там есть в ядре проекта (core.h), а есть там вот такой интересный код:
+4.3 Чтоб сделать самую простую загрузку неуправляемой DLL в целевой процесс нужно подсмотреть что там есть в ядре проекта (core.h), а есть там вот такой интересный код:
 ```c++
 QString MD5Hash(QString file);
 void ShowMessageBox(HWND hhh, QString Text, QString Title, int nButtons = MB_OK | MB_ICONERROR);
@@ -156,11 +172,17 @@ core::ShowMessageBox(NULL, "Injection complete!", "sosi bebry");
 ![](img/Screenshot_5.png)
 
 InvaderLoader - project root folder
+
 InvaderLoader.pro - project file, this file stores the initial settings for QT Creator and for Qmake
+
 - Headers - C ++ header files
+
 - Sources - C ++ source files
+
 - Forms - files of graphic forms of your application
+
 - Resources- there is a resource file where you can store pictures and dlls that will need to be embedded
+
 - Other files- a folder for other files that may be needed in the project (not analogous to resources)
 
 3. Configure the loader in the header and source files of the C ++ code:
@@ -170,34 +192,44 @@ InvaderLoader.pro - project file, this file stores the initial settings for QT C
 ![](img/Screenshot_6.png)
 
 In the config class, which is initialized in almost every part of the loader, there are basic settings that are signed both in the code editor itself, and here I will describe them.
+
 `bool ProtectAgainStart` - enables / disables (false / true) the repeated launch of the loader, if the program has already been launched and is running now.
+
 `QString version` - a string value that indicates the version of the loader (required for auto-update)
+
 `bool ShowUpdateWindow` - shows / does not show (true / false) a window that notifies about checking and subsequent updating of the loader
+
 `bool AutoUpdateDisable` - enables / disables (false / true) auto-update of the loader. Suitable for people who like to manually fold builds
+
 `QString UrlToVersionFile` - a string value into which you want to enter a link to the version.txt file that is posted on your site (if auto-update is disabled, you can leave it blank)
+
 `QString UrlToUpdatedFile` - a string value into which you need to enter a link to the updated loader file that is posted on your site (if auto-update is disabled, you can leave it blank)
+
 `QString UrlToCheckLisencePHP` - string value in which you need to enter a link to the main file for processing the request check.php that is posted on your website
+
 `bool UsingKeySystem` - a system of keys, at your discretion if you know what you can think of interesting things with it (let's only give out the key, and the person will enter the login / password at will)
+
 `bool HideKeyField` - hides the area surrounded by a red rectangle
 
 ![](img/Screenshot_7.png)
 
 
-AUTO UPDATE WORKS AS FOLLOWS:
+```AUTO UPDATE WORKS AS FOLLOWS:
 1) We create a build with a version higher than it was before.
 2) Uploading the build to the site
 3) Specify the new version in the version.txt file that is posted on your website.
 4) When starting a loader with an outdated version (the version is indicated in the string value `QString version`)
+```
 
 Now let's figure out how to use this loader after all the settings (provided that all Internet requests are working correctly)
 
 4. We will need to write our own method for injecting dlls into the target process:
-1) You will need to find the handler for clicking the Inject button in the selecttab.cpp file and the name of the handler `on_inject_clicked`
-2) There is nothing inside the handler, so we have to do it ourselves (that's why "Your Injection method" is written there):
+4.1 You will need to find the handler for clicking the Inject button in the selecttab.cpp file and the name of the handler `on_inject_clicked`
+4.2 There is nothing inside the handler, so we have to do it ourselves (that's why "Your Injection method" is written there):
 
 ![](img/Screenshot_8.png)
 
-3) To make the simplest loading of an unmanaged DLL into the target process, you need to spy on what is there in the core of the project (core.h), but there is such an interesting code there:
+4.3 To make the simplest loading of an unmanaged DLL into the target process, you need to spy on what is there in the core of the project (core.h), but there is such an interesting code there:
 ```c++
 QString MD5Hash(QString file);
 void ShowMessageBox(HWND hhh, QString Text, QString Title, int nButtons = MB_OK | MB_ICONERROR);
