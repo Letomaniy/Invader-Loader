@@ -9,8 +9,11 @@
 
 ## Как использовать?
 1. Нужно выполнить все пункты по этой ссылке (https://github.com/Letomaniy/QT-Static-Build-MSCV-5.9-5.15), для того чтоб была возможность собирать проект в статическом варианте.
+
 1.1 После выполненного первого пункта, загружаем весь ServerSide на хостинг(сайт без SSL сертификата).
+
 1.2 Импортируем .sql файл в базу данных
+
 1.3 Подключаем check.php скрипт к базе данных указав в 3,4 строках данные от БД.
 
 ![](img/Screenshot_1.png)
@@ -37,6 +40,7 @@ InvaderLoader.pro - файл проекта, в этом файле хранят
 - Другие файлы(Others file) - папка для прочих файлов которые могут понадобится в проекте(не является аналогом ресурсов)
 
 3.  Настраиваем лоадер в заголовочных и исходных файлах кода C++:
+
 3.1 Для начала заходим в файл core.h, как можно понять он является своеобразным ядром. Тут находится большая часть настроек которые нужно указать.
 
 ![](img/Screenshot_6.png)
@@ -127,9 +131,13 @@ core::ShowMessageBox(NULL, "Injection complete!", "sosi bebry");
 :white_check_mark: This loader was made by a specific person. But since he doesn't really need it anymore. I'll post it here. It is a loader written in QT C ++ with some functions on winapi. It has auto-renewal of authorization by key (if you wish, you can enable additional confirmation by key), a method for unpacking resources, a method for working with unmanaged libraries from a byte array, and a method for injecting dll into a process. Perhaps the most important thing is linking an account by HWID.
 
 ## How to use?
+
 1. You need to complete all the points on this link (https://github.com/Letomaniy/QT-Static-Build-MSCV-5.9-5.15) in order to be able to build the project in a static version.
+
 1.1 After completing the first step, upload the entire ServerSide to the hosting (site without SSL certificate).
+
 1.2 Importing the .sql file into the database
+
 1.3 We connect the check.php script to the database by specifying the data from the database in 3,4 lines.
 
 ![](img/Screenshot_1.png)
@@ -156,6 +164,7 @@ InvaderLoader.pro - project file, this file stores the initial settings for QT C
 - Other files- a folder for other files that may be needed in the project (not analogous to resources)
 
 3. Configure the loader in the header and source files of the C ++ code:
+
 3.1 First, go to the core.h file, as you can understand it is a kind of core. This is where most of the settings you need to specify are located.
 
 ![](img/Screenshot_6.png)
