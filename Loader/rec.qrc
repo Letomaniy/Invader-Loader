@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/img">
+        <file>main.png</file>
+        <file>seltab.png</file>
+        <file>exit.png</file>
+        <file>minimize.png</file>
+        <file>vk.png</file>
+        <file>icon.ico</file>
+    </qresource>
+    <qresource prefix="/bin"/>
+</RCC>

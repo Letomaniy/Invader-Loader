@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>selecttab</class>
+ <widget class="QDialog" name="selecttab">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>189</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>InvaderLoader</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{border-image: url(:/img/seltab.png);}</string>
+  </property>
+  <widget class="QPushButton" name="minimize">
+   <property name="geometry">
+    <rect>
+     <x>152</x>
+     <y>4</y>
+     <width>15</width>
+     <height>15</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton#minimize {
+    image: url(:/img/minimize.png);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    height: 26px;
+    width: 40px;
+} </string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="exit">
+   <property name="geometry">
+    <rect>
+     <x>171</x>
+     <y>1</y>
+     <width>15</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton#exit {
+    image: url(:/img/exit.png);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    height: 26px;
+    width: 40px;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="vk">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>180</y>
+     <width>50</width>
+     <height>50</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton#vk {
+    image: url(:/img/vk.png);
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+    height: 26px;
+    width: 40px;
+}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="inject">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>80</y>
+     <width>91</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>INJECT</string>
+   </property>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>inject</tabstop>
+  <tabstop>vk</tabstop>
+  <tabstop>minimize</tabstop>
+  <tabstop>exit</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
