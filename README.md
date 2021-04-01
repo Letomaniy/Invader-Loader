@@ -27,6 +27,7 @@
 2.2 После настройки проекта у вас в обозревателе получится что-то вроде того что на следующем скриншоте. Объясню что за что отвечает:
 
 ![](img/Screenshot_5.png)
+
 InvaderLoader - корневая папка проекта
 InvaderLoader.pro - файл проекта, в этом файле хранятся первоначальные настройки для QT Creator и для Qmake
 - Заголовочные(Headers) - заголовочные файлы C++
@@ -37,7 +38,9 @@ InvaderLoader.pro - файл проекта, в этом файле хранят
 
 3.  Настраиваем лоадер в заголовочных и исходных файлах кода C++:
 3.1 Для начала заходим в файл core.h, как можно понять он является своеобразным ядром. Тут находится большая часть настроек которые нужно указать.
+
 ![](img/Screenshot_6.png)
+
 В классе config который инициализируется почти в каждой части лоадера находятся основные настройки которые подписаны как в самом редакторе кода, так и здесь я их опишу.
 `bool ProtectAgainStart` - разрешает/запрещает(false/true) повторный запуск лоадера, если программа уже была запущена ранее и работает сейчас.
 `QString version` - строковое значение которое указывает версию лоадера(требуется для автообновления)
@@ -48,6 +51,7 @@ InvaderLoader.pro - файл проекта, в этом файле хранят
 `QString UrlToCheckLisencePHP`- строковое значени в которое требуется вписать ссылку на основной файл обработки запроса check.php который размещён у вас на сайте
 `bool UsingKeySystem` - система ключей, на ваше усмотрение если вы знаете что с ней можно будет интересного придумать(допустим выдавать только ключ, а человек будет вводить логин/пароль по желанию)
 `bool HideKeyField` - скрывает область которая обведена красным прямоугольником
+
 ![](img/Screenshot_7.png)
 
 
@@ -62,6 +66,7 @@ InvaderLoader.pro - файл проекта, в этом файле хранят
 4. Нам нужно будет написать собственный метод для иньекции dll в целевой процесс:
 1) Нужно будет найти в файле selecttab.cpp обработчик нажатия на кнопку Inject название обработчика `on_inject_clicked`
 2) Внутри обработчика ничего нет, по этому мы должны сделать это сами(по этому там и написано "Your Injection method"):
+
 ![](img/Screenshot_8.png)
 
 3) Чтоб сделать самую простую загрузку неуправляемой DLL в целевой процесс нужно подсмотреть что там есть в ядре проекта (core.h), а есть там вот такой интересный код:
@@ -141,6 +146,7 @@ core::ShowMessageBox(NULL, "Injection complete!", "sosi bebry");
 2.2 After setting up the project, you will have something like the following screenshot in your browser. I will explain what he is responsible for:
 
 ![](img/Screenshot_5.png)
+
 InvaderLoader - project root folder
 InvaderLoader.pro - project file, this file stores the initial settings for QT Creator and for Qmake
 - Headers - C ++ header files
@@ -151,7 +157,9 @@ InvaderLoader.pro - project file, this file stores the initial settings for QT C
 
 3. Configure the loader in the header and source files of the C ++ code:
 3.1 First, go to the core.h file, as you can understand it is a kind of core. This is where most of the settings you need to specify are located.
+
 ![](img/Screenshot_6.png)
+
 In the config class, which is initialized in almost every part of the loader, there are basic settings that are signed both in the code editor itself, and here I will describe them.
 `bool ProtectAgainStart` - enables / disables (false / true) the repeated launch of the loader, if the program has already been launched and is running now.
 `QString version` - a string value that indicates the version of the loader (required for auto-update)
@@ -162,6 +170,7 @@ In the config class, which is initialized in almost every part of the loader, th
 `QString UrlToCheckLisencePHP` - string value in which you need to enter a link to the main file for processing the request check.php that is posted on your website
 `bool UsingKeySystem` - a system of keys, at your discretion if you know what you can think of interesting things with it (let's only give out the key, and the person will enter the login / password at will)
 `bool HideKeyField` - hides the area surrounded by a red rectangle
+
 ![](img/Screenshot_7.png)
 
 
@@ -176,6 +185,7 @@ Now let's figure out how to use this loader after all the settings (provided tha
 4. We will need to write our own method for injecting dlls into the target process:
 1) You will need to find the handler for clicking the Inject button in the selecttab.cpp file and the name of the handler `on_inject_clicked`
 2) There is nothing inside the handler, so we have to do it ourselves (that's why "Your Injection method" is written there):
+
 ![](img/Screenshot_8.png)
 
 3) To make the simplest loading of an unmanaged DLL into the target process, you need to spy on what is there in the core of the project (core.h), but there is such an interesting code there:
