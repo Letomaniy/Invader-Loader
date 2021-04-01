@@ -74,7 +74,8 @@ InvaderLoader.pro - файл проекта, в этом файле хранят
 ![](img/Screenshot_7.png)
 
 
-```АВТООБНОВЛЕНИЕ РАБОТАЕТ СЛЕДУЮЩИМ ОБРАЗОМ: 
+```
+АВТООБНОВЛЕНИЕ РАБОТАЕТ СЛЕДУЮЩИМ ОБРАЗОМ: 
 1) Создаём билд с версией выше чем была прежде. 
 2) Загружаем билд на сайт
 3) Указываем новую версию в файле version.txt который размещён у вас на сайте.
@@ -214,7 +215,8 @@ In the config class, which is initialized in almost every part of the loader, th
 ![](img/Screenshot_7.png)
 
 
-```AUTO UPDATE WORKS AS FOLLOWS:
+```
+AUTO UPDATE WORKS AS FOLLOWS:
 1) We create a build with a version higher than it was before.
 2) Uploading the build to the site
 3) Specify the new version in the version.txt file that is posted on your website.
